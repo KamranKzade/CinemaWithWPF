@@ -65,18 +65,19 @@
                 <Grid Grid.Column="2">
 
                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="3*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Image Margin="15"
-                           Grid.Column="0"
-                           HorizontalAlignment="Right"
-                           VerticalAlignment="Stretch"
-                           Source="/Images/search.png"
-                           Stretch="Uniform"/>
-
-                    <TextBox Grid.Column="1"
+                    <Button Grid.Column="1"
+                            BorderThickness="0"
+                            Margin="0 10 5 10">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Images/search.png"
+                                        Stretch="Uniform"/>
+                        </Button.Background>
+                    </Button>
+                    <TextBox Grid.Column="0"
                              Margin="0 15"
                              Name="TextBox_Search"
                              Text="SEARCH"
