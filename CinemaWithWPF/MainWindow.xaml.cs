@@ -25,4 +25,6 @@ public partial class MainWindow : Window
 
 
     private void TextBox_MouseEnter(object sender, MouseEventArgs e) => TextBox_Search.Text = string.Empty;
+
+
 }
