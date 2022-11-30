@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="CinemaWithWPF.UserControls.UserControl_Movie"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CinemaWithWPF.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel HorizontalAlignment="Center">
+        <Image Height="300"
+               x:Name="picture"
+               Width="600"
+               Stretch="Fill"/>
+
+        <Label Name="Film_Name"
+               Margin="10"
+               Content="Name"
+               FontSize="{StaticResource labelSize}"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"
+               Foreground="{StaticResource foreColorTitle}"/>
+
+        <StackPanel Orientation="Horizontal" 
+                    Margin="10"
+                    HorizontalAlignment="Center">
+
+            <Label Name="Genre_Name"
+                   Margin="5"
+                   Content="Genre, "
+                   FontSize="{StaticResource labelSize}"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Foreground="#5B646B"/>
+            
+            <Label Name="Year"
+                   Margin="5"
+                   Content="year"
+                   FontSize="{StaticResource labelSize}"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Foreground="#5B646B"/>
+        </StackPanel>
+        
+    </StackPanel>
+</UserControl>
