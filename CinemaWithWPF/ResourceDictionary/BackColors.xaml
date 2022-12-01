@@ -5,5 +5,9 @@
         <GradientStop Color="#14101E" Offset="0"/>
         <GradientStop Color="#33AEAD" Offset="1"/>
     </LinearGradientBrush>
-    
+
+    <LinearGradientBrush x:Key="backColor_about">
+        <GradientStop Color="#33AEAD" Offset="0"/>
+        <GradientStop Color="#14101E" Offset="1"/>
+    </LinearGradientBrush>
 </ResourceDictionary>

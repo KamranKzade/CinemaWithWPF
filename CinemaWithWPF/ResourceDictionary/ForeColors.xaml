@@ -2,5 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
    
     <SolidColorBrush  x:Key="foreColorTitle" Color="#0599D8"/>
+    <SolidColorBrush  x:Key="foreColorTitle2" Color="WhiteSmoke"/>
 
 </ResourceDictionary>

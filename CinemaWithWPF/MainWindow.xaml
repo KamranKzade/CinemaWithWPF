@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CinemaWithWPF"
         mc:Ignorable="d"
+        Icon="/Images/film.png"
         Title="Cinema"
         Height="800"
+        MinWidth="525"
+        Name="window"
+        SizeChanged="Window_SizeChanged"
+        MinHeight="600"
         Loaded="Window_Loaded"
         WindowStartupLocation="CenterScreen"
         Width="1000">

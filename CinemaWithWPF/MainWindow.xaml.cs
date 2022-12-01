@@ -1,31 +1,22 @@
 ﻿using CinemaWithWPF.Models;
 using CinemaWithWPF.UserControls;
-using System;
+using CinemaWithWPF.Windows;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace CinemaWithWPF;
 
 
 public partial class MainWindow : Window
 {
+    string jsonStr;
     private List<string> _movieDataBase;
     HttpClient httpClient = new HttpClient();
-    string jsonStr;
 
 
 
@@ -39,6 +30,16 @@ public partial class MainWindow : Window
         _movieDataBase = JsonSerializer.Deserialize<List<string>>(File.ReadAllText("../../../DataBase/MovieDataBase.json"))!;
     }
 
+
+
+    private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+    {
+        if (window.Height < 650 || window.Width < 550)
+            wrapPanel.Columns = 1;
+        else
+            wrapPanel.Columns = 2;
+
+    }
 
     private async void Window_Loaded(object sender, RoutedEventArgs e)
     {
@@ -64,12 +65,7 @@ public partial class MainWindow : Window
         }
     }
 
-
     private async void Button_Click(object sender, RoutedEventArgs e) => await Seartch_Film();
-
-
-
-
 
     private void TextBox_MouseEnter(object sender, MouseEventArgs e) => TextBox_Search.Text = string.Empty;
 
@@ -88,10 +84,13 @@ public partial class MainWindow : Window
             var movie = JsonSerializer.Deserialize<Movie>(jsonStr);
             wrapPanel.Children.Add(new UserControl_Movie(movie!));
 
+            MoreInformationAboutTheFilm more = new(movie);
+            more.ShowDialog();
 
             _movieDataBase.Add(movie?.Title!);
             string str = JsonSerializer.Serialize(_movieDataBase);
             File.WriteAllText("../../../DataBase/MovieDataBase.json", str);
+            return;
         }
         else
             MessageBox.Show("No Result Found", "Information", MessageBoxButton.OK, MessageBoxImage.Information);

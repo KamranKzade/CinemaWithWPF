@@ -1,13 +1,13 @@
 ﻿using CinemaWithWPF.Models;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Windows.Controls;
+using System.Windows;
 
-namespace CinemaWithWPF.UserControls;
+namespace CinemaWithWPF.Windows;
 
-public partial class UserControl_Movie : UserControl
+
+public partial class MoreInformationAboutTheFilm : Window
 {
-
     public event PropertyChangedEventHandler? PropertyChanged;
     protected void OnPropertyChanged([CallerMemberName] string name = null!)
     {
@@ -23,19 +23,17 @@ public partial class UserControl_Movie : UserControl
     public Movie Movie
     {
         get { return movie; }
-        set 
-        { 
+        set
+        {
             movie = value;
             OnPropertyChanged();
         }
     }
 
 
-
-    public UserControl_Movie(Movie movie)
+    public MoreInformationAboutTheFilm(Movie movie)
     {
         InitializeComponent();
-
         Movie = movie;
         DataContext = this;
     }
